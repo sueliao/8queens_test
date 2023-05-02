@@ -6,8 +6,33 @@ public class Program
 {
 	public static void Main()
 	{
-		var result = Queens(8).Select(solution => string.Join(" ", solution.Select((r, f) => $"{(char)('A' + f)}{r + 1}")));
-		Console.Write(string.Join(Environment.NewLine, result));
+		int n = 8;
+		int index = 0;
+		var test = Queens(n);
+		foreach(var items in test)
+		{
+			index++;
+			Console.WriteLine("Solution " + index + ".");
+			foreach(var item in items)
+			{
+				for(int i=0;i<n;i++)
+				{
+					if(i==item){
+						Console.Write("Q");
+					}
+					else{
+						Console.Write(".");
+					}
+				}
+					Console.WriteLine();
+				//Console.Write(item + " ");
+			}
+			
+			Console.WriteLine();
+		}
+		
+		//var result = Queens(8).Select(solution => string.Join(" ", solution.Select((r, f) => $"{(char)('A' + f)}{r + 1}")));
+		//Console.Write(string.Join(Environment.NewLine, result));
 	}
 	
 	 private static IEnumerable<int[]> Queens(int n) {
